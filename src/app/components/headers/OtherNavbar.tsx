@@ -47,7 +47,7 @@ export default function OtherNavbar() {
 
             {/* BASKET */}
             <Basket/>
-
+ 
             {!authMember ? (
               <Box>
                 <Button variant="contained" className="login-button">
