@@ -35,8 +35,7 @@ export default function Events() {
             return (
               <SwiperSlide key={number} className={"events-info-frame"}>
                 <div className={"events-img"}>
-                  <img alt=""
-                  src={value.img} className={"events-img"} />
+                  <img alt="" src={value.img} className={"events-img"} />
                 </div>
                 <Box className={"events-desc"}>
                   <Box className={"events-bott"}>
@@ -44,8 +43,7 @@ export default function Events() {
                       <div className={"event-title-speaker"}>
                         <strong>{value.title}</strong>
                         <div className={"event-organizator"}>
-                          <img alt=""
-                           src={"/icons/speaker.svg"} />
+                          <img alt="" src={"/icons/speaker.svg"} />
                           <p className={"spec-text-author"}>{value.author}</p>
                         </div>
                       </div>
@@ -54,13 +52,11 @@ export default function Events() {
 
                       <div className={"bott-info"}>
                         <div className={"bott-info-main"}>
-                          <img alt=""
-                           src={"/icons/calendar.svg"} />
+                          <img alt="" src={"/icons/calendar.svg"} />
                           {value.date}
                         </div>
                         <div className={"bott-info-main"}>
-                          <img alt=""
-                          src={"/icons/location.svg"} />
+                          <img alt="" src={"/icons/location.svg"} />
                           {value.location}
                         </div>
                       </div>
@@ -72,12 +68,14 @@ export default function Events() {
           })}
         </Swiper>
         <Box className={"prev-next-frame"}>
-          <img alt=""
+          <img
+            alt=""
             src={"/icons/arrow-right.svg"}
             className={"swiper-button-prev"}
           />
           <div className={"dot-frame-pagination swiper-pagination"}></div>
-          <img alt=""
+          <img
+            alt=""
             src={"/icons/arrow-right.svg"}
             className={"swiper-button-next"}
             style={{ transform: "rotate(-180deg)" }}
