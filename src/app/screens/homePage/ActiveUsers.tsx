@@ -3,15 +3,23 @@ import { CardCover, CssVarsProvider } from "@mui/joy";
 import Card from "@mui/joy/Card";
 import CardOverflow from "@mui/joy/CardOverflow";
 import AspectRatio from "@mui/joy";
+import { useSelector } from "react-redux";
+import { createSelector  } from "reselect";
+import { retrieveTopUsers } from "./selector";
+import { Product } from "../../../lib/types/product";
+import { serverApi } from "../../../lib/config";
+import { Member } from "../../../lib/types/member";
 
-const activeUsers = [
-  { memberNick: "Martin", memberImage: "img/martin.webp" },
-  { memberNick: "Justin", memberImage: "img/justin.webp" },
-  { memberNick: "Rose", memberImage: "img/rose.webp" },
-  { memberNick: "Nusret", memberImage: "img/nusret.webp" },
-];
+
+/** Redux Slice Selector */
+const topUsersRetriever = createSelector(
+  retrieveTopUsers,
+  (topUsers) => ({topUsers})
+);
+
 
 export default function ActiveUsers() {
+  const { topUsers } = useSelector(topUsersRetriever);
   return (
     <div className="active-users-frame">
       <Container>
@@ -19,18 +27,20 @@ export default function ActiveUsers() {
           <Box className="category-title">Active Users</Box>
           <Stack className="cards-frame">
             <CssVarsProvider>
-              {activeUsers.length !== 0 ? (
-                activeUsers.map((ele, index) => {
+              {topUsers.length !== 0 ? (
+                topUsers.map((member: Member) => {
+                   const imagePath = `${serverApi}/${member.memberImage}`;
                   return (
+
                     <Stack className="card">
                       <Card sx={{ height: "100%" }}>
                         <CardCover>
-                          <img src={ele.memberImage} alt="" />
+                          <img src={imagePath} alt="" />
                         </CardCover>
                       </Card>
                       <CardOverflow variant="plain">
                         <Box className="member-nickname">
-                          {ele.memberNick}
+                          {member.memberNick}
                         </Box>
                       </CardOverflow>
                     </Stack>
