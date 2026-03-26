@@ -28,12 +28,15 @@
 
 .products-page .products .top-text {
   position: relative;
-
   width: 100%;
   height: 43px;
   margin-top: 80px;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 700;
 }
 
 .products-page .products .top-text .category-title {
